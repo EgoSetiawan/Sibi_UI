@@ -1,0 +1,194 @@
+body, html {
+margin: 0;
+padding: 0;
+height: 100%;
+}
+
+.background {
+background-image: url('../images/background.png');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #4cb9e7;
+}
+
+.container {
+max-width: 950px;
+margin: 0 10%;
+margin-left: 150px;
+}
+
+.content-wrap{
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+gap: 2rem;
+}
+
+.container-wrap{
+margin-bottom: 4rem;
+}
+
+#hero {
+margin: 0;
+font-size: 4.3rem; 
+line-height: 1.2;
+}
+
+.text-wrap{
+flex: 1;
+max-width: 600px;
+}
+
+.animation-wrap{
+flex: 0 0 400px;
+}
+
+.animation-wrapbox{
+margin: 1rem 0 1.5rem;
+}
+
+.title {
+font-size: 4.3rem;
+margin-bottom: 0.5rem;
+font-weight: 700;
+line-height: 1.2;
+}
+
+.title-light {
+font-weight: 400;
+display: block;
+margin-top: 0.5rem;
+}
+
+.subtitle {
+font-size: 1.9rem;
+margin: auto;
+/* padding-bottom: 10px; */
+font-weight: 400;
+}
+
+.contentParaph {
+font-size: 1rem;
+line-height: 1.6;
+margin-bottom: 3rem;
+max-width: 500px;
+text-align: justify;
+color: #ffffff;
+}
+
+.animation-wrapbox {
+width: 16rem; 
+height: 18rem;
+border-radius: 20px;
+background: linear-gradient(to bottom, #1e40af, #3b82f6); 
+box-shadow: 11px -12px 9px 3px #1e3a8a;
+padding: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* .animation-wrapbox {
+  width: 16rem;
+  height: 18rem;
+  padding: 10px;
+  background: #1e40af;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.canvas-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #1e40af, #64676d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#three-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.button-container {
+display: flex;
+gap: 3rem;
+}
+
+.cta-button {
+display: inline-flex;
+align-items: center;
+gap: 0.4rem;
+padding: 0.6rem 1.5rem;
+font-size: 1.1rem;
+font-weight: 600;
+border-radius: 999px;
+text-decoration: none;
+transition: all 0.3s ease;
+}
+
+.cta-button.primary {
+background: #3b82f6;
+color: white;
+border: 2px solid transparent;
+box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button.primary:hover {
+background: #2563eb; 
+}
+
+.cta-button.secondary {
+background: transparent;
+color: white;
+border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.cta-button.secondary:hover {
+background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+.background {
+    background-position: top center; 
+}
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+.background {
+    background-position: center left; 
+}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+.background {
+    background-position: 25% center;
+    /* --focus-x: 75%;
+    --focus-y: 30%;  */
+}
+}
+
+@media (min-height: 1000px) {
+.background {
+    background-position: center 30%;
+    /* --focus-x: 25%; */
+}
+}
+
+@media (hover: none) {
+.background {
+    background-attachment: scroll;
+}
+}

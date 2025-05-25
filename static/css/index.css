@@ -1,0 +1,253 @@
+:root {
+  --primary: #fdfdfd;
+  --secondary: #3498db;
+  --background: #1a2332;
+  --white: #ffffff
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.background {
+  background-image: url('../images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #4cb9e7;
+}
+
+.title {
+  padding: 1rem 0 0 1rem;
+  font-size: 2rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; 
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem 20px;
+}
+
+.controls {
+  /* background: white; */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.controls h2 {
+  color: var(--white);
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input[type='range'] {
+  width: 100%;
+}
+
+.select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  background: var(--secondary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px 0;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%; 
+  overflow: hidden;
+}
+
+#videoFeed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.prediction-bars {
+  background: var(--background);
+  color: #e0e0e0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.prediction-bars h2 {
+  color: #e0e0e0;
+  margin-top: 0;
+}
+
+.prediction-bar {
+  margin: 10px 0;
+  background: #2c3e50;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  height: 30px;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #4cb9e7;
+  transition: width 0.3s ease;
+  width: 0%; /* JS will update this */
+}
+
+
+.bar-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  color: white;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.model-toggle-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.model-toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  margin-top: 8px;
+}
+
+.model-toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.model-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2d3748;
+  transition: .4s;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Only rounded on the left and right ends */
+.model-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 34px;
+  width: 50%;
+  left: 3px;
+  bottom: 3px;
+  background-color: #00b3ff;
+  transition: .4s;
+  border-radius: 4px;
+}
+
+input:checked + .model-toggle-slider:before {
+  transform: translateX(calc(100% - 6px));
+}
+
+/* Labels for model names */
+.model-label {
+  position: absolute;
+  width: 50%;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  transition: .4s;
+  font-weight: bold;
+}
+
+.model-label.left {
+  left: 0;
+}
+
+.model-label.right {
+  right: 0;
+}
+
+/* Color the active model label */
+input:not(:checked) + .model-toggle-slider .model-label.left,
+input:checked + .model-toggle-slider .model-label.right {
+  color: #0f1923;
+}
+
+input:checked + .model-toggle-slider .model-label.left,
+input:not(:checked) + .model-toggle-slider .model-label.right {
+  color: #ffffff;
+}
+
+@media (max-width: 991px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .controls,
+  .video-panel,
+  .prediction-bars {
+    width: 100%;
+  }
+
+  .title {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .bar-label {
+    font-size: 12px;
+  }
+}
